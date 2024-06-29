@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candle🕯️</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cpwebassets.codepen.io/assets/common/browser_support-2c1a3d31dbc6b5746fb7dacdbc81dd613906db219f13147c66864a6c3448246c.js"></script>
+  <script src="https://cpwebassets.codepen.io/assets/common/everypage-b1fe1ca71dab80c49b8e5ebed21506a80cb6fe64ecaa8c6dddae5aca7b1e34d7.js"></script>
+</head>
+<body>
+  <h1>
+    Make a wish..<br/>.. and blow out the candle</h1>
+ <div class="glow" id="glow"></div>
+ <div id="candle">
+   <div class="stripe"></div>
+   <div class="stripe"></div>
+   <div class="stripe"></div>
+   <div class="stripe"></div>
+   <div class="stripe"></div>
+   <div id="top">
+     <div class="smoke"></div>
+     <div class="smoke"></div>
+     <div class="smoke"></div>
+     <div id="knot"></div>
+     <div class="burn" id="flame"></div>
+   </div>
+ </div>
+ <script>
+      const audio=new Audio();
+      audio.src="d.mp3";
+$(function() {
+
+var flame = $('#flame');
+var txt = $('h1');
+
+flame.on({
+  click: function() {
+    audio.play();
+    flame.removeClass('burn').addClass('puff');
+    $('.smoke').each(function() {
+      $(this).addClass('puff-bubble');
+    });
+    $('#glow').remove();
+    txt.hide().html("It <b>will</b> come true..").delay(750).fadeIn(300);
+    $('#candle').animate({
+      'opacity': '.5'
+    }, 100);
+  }
+})
+});
+ </script>
+</body>
+</html>
